@@ -1,32 +1,33 @@
 import * as React from "react";
 
-type Event = React.MouseEvent<HTMLElement>;
+type Event = React.MouseEvent<SVGElement | HTMLElement>;
 
-export interface IProps extends React.HTMLAttributes<HTMLElement> {
+export interface Props extends React.HTMLAttributes<HTMLElement> {
   className: string;
   isClearable?: boolean;
+  icon?: React.ReactNode;
   onClick?: (event: Event) => void;
   children: React.ReactNode;
 }
 
-export interface IDefaultProps {
+export interface DefaultProps {
   isClearable: boolean;
   onClick: (event: Event) => void;
 }
 
-type PropsWithDefault = IProps & IDefaultProps;
+type PropsWithDefault = Props & DefaultProps;
 
-interface IState {
+interface State {
   isVisible: boolean;
 }
 
-export class Tag extends React.Component<IProps, IState> {
-  public static defaultProps: IDefaultProps = {
+export class Tag extends React.Component<Props, State> {
+  public static defaultProps: DefaultProps = {
     isClearable: false,
     onClick: () => {}
   };
 
-  public state: IState = {
+  public state: State = {
     isVisible: true
   };
 
@@ -36,9 +37,26 @@ export class Tag extends React.Component<IProps, IState> {
     );
   };
 
+  public renderIcon = (): React.ReactElement<any> => {
+    const { icon } = this.props;
+    const commonIconProps = { onClick: this.handleClick };
+
+    return Boolean(icon) ? (
+      React.cloneElement(icon as React.ReactElement<any>, {
+        "data-testid": "custom-icon",
+        ...commonIconProps
+      })
+    ) : (
+      <i data-testid="default-icon" {...commonIconProps}>
+        x
+      </i>
+    );
+  };
+
   public render() {
     const {
       children,
+      icon,
       isClearable,
       className,
       onClick,
@@ -50,11 +68,7 @@ export class Tag extends React.Component<IProps, IState> {
     return isVisible ? (
       <span className={className} {...restProps}>
         <span>{children}</span>
-        {isClearable ? (
-          <i data-testid="icon" onClick={this.handleClick}>
-            x
-          </i>
-        ) : null}
+        {isClearable ? this.renderIcon() : null}
       </span>
     ) : null;
   }

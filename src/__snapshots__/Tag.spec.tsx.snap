@@ -18,9 +18,9 @@ exports[`Tag renders correctly with all props 1`] = `
     some text
   </span>
   <i
-    data-testid="icon"
+    data-testid="custom-icon"
   >
-    x
+    some icon
   </i>
 </span>
 `;

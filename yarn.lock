@@ -713,10 +713,10 @@
     log-update "^2.3.0"
     strip-ansi "^3.0.1"
 
-"@j.u.p.iter/jupiter-scripts@^1.6.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@j.u.p.iter/jupiter-scripts/-/jupiter-scripts-1.8.0.tgz#0f3aad54f3bda2c0c19cdb63ff4d8c0c7d2965ca"
-  integrity sha512-r8dOQJorKbEdPVdYlk9WhtJYqzAuaD2LWqWwJz2Qo96Vpr8jp62GKtM7zVnc8wNT/Edi6G/sAQqPtPMAqTsXSg==
+"@j.u.p.iter/jupiter-scripts@1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@j.u.p.iter/jupiter-scripts/-/jupiter-scripts-1.9.0.tgz#682b91bea5dc9793b3c3baa81aea76f19450eeec"
+  integrity sha512-Jgvs2jr6p7pZfMZRBHKtAi7P4BFVmwxJsjH/O4FxCv9owgKpR7+ojyBX5i/uI17Rymio484lLRbg8NcLj+WkfA==
   dependencies:
     "@babel/cli" "^7.0.0"
     "@babel/core" "^7.0.0"
@@ -757,6 +757,16 @@
     typescript "^3.1.6"
     which "^1.3.1"
     yargs-parser "^10.1.0"
+
+"@j.u.p.iter/react-icon@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@j.u.p.iter/react-icon/-/react-icon-1.0.1.tgz#e27c1636ffff11a8dd14845b05ca9bf02e00b97b"
+  integrity sha512-XizaoZJcn5fjJofQ8xw2BbP8ijhBE1C2/D7n29fiGTElukJOuPGDILLXlvjkTHCK1zAUIuolEVuerzLnCQ69iQ==
+
+"@j.u.p.iter/svg-sprites@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@j.u.p.iter/svg-sprites/-/svg-sprites-0.0.2.tgz#b7fb57900f01f4beb4347226418632772a3d332d"
+  integrity sha512-JF1P30T1Cs0LocyEWdVaSiTYA2Pk47Nqbk2NDhsx6DAvMIA0znonLS/Wp4p0jQHOCGzxH6QxxjWAWpeVDq1Msg==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"

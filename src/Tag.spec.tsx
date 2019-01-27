@@ -26,40 +26,77 @@ describe("Tag", () => {
     const { container } = render(
       getTagEl({
         isClearable: true,
-        onClick: () => {}
+        onClick: () => {},
+        icon: <i>some icon</i>
       })
     );
 
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("handles click correctly", () => {
-    const { getByTestId, container } = render(
-      getTagEl({
-        isClearable: true
-      })
-    );
+  describe("with default close icon", () => {
+    it("handles click correctly", () => {
+      const { getByTestId, container } = render(
+        getTagEl({
+          isClearable: true
+        })
+      );
 
-    expect(container.firstChild).toBeDefined();
+      expect(container.firstChild).toBeDefined();
 
-    fireEvent.click(getByTestId("icon"));
+      fireEvent.click(getByTestId("default-icon"));
 
-    expect(container.firstChild).toBe(null);
+      expect(container.firstChild).toBe(null);
+    });
+
+    it("calls onClick correctly", () => {
+      const onClick = jest.fn();
+
+      const { getByTestId } = render(
+        getTagEl({
+          isClearable: true,
+          onClick
+        })
+      );
+
+      fireEvent.click(getByTestId("default-icon"));
+
+      expect(onClick).toHaveBeenCalledTimes(1);
+      expect(onClick.mock.calls[0][0].currentTarget).toBeDefined();
+    });
   });
 
-  it("calls onClick correctly", () => {
-    const onClick = jest.fn();
+  describe("with custom close icon", () => {
+    it("handles click correctly", () => {
+      const { getByTestId, container } = render(
+        getTagEl({
+          isClearable: true,
+          icon: <i>close icon</i>
+        })
+      );
 
-    const { getByTestId } = render(
-      getTagEl({
-        isClearable: true,
-        onClick
-      })
-    );
+      expect(container.firstChild).toBeDefined();
 
-    fireEvent.click(getByTestId("icon"));
+      fireEvent.click(getByTestId("custom-icon"));
 
-    expect(onClick).toHaveBeenCalledTimes(1);
-    expect(onClick.mock.calls[0][0].currentTarget).toBeDefined();
+      expect(container.firstChild).toBe(null);
+    });
+
+    it("calls onClick correctly", () => {
+      const onClick = jest.fn();
+
+      const { getByTestId } = render(
+        getTagEl({
+          isClearable: true,
+          onClick,
+          icon: <i>close icon</i>
+        })
+      );
+
+      fireEvent.click(getByTestId("custom-icon"));
+
+      expect(onClick).toHaveBeenCalledTimes(1);
+      expect(onClick.mock.calls[0][0].currentTarget).toBeDefined();
+    });
   });
 });
