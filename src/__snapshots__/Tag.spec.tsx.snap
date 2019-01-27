@@ -4,7 +4,9 @@ exports[`Tag renders correctly by default 1`] = `
 <span
   class="some-class-name"
 >
-  <span />
+  <span>
+    some text
+  </span>
 </span>
 `;
 
@@ -12,7 +14,9 @@ exports[`Tag renders correctly with all props 1`] = `
 <span
   class="some-class-name"
 >
-  <span />
+  <span>
+    some text
+  </span>
   <i
     data-testid="icon"
   >

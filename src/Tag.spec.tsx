@@ -8,7 +8,9 @@ describe("Tag", () => {
 
   beforeAll(() => {
     getTagEl = (props: TagProps) => (
-      <Tag className="some-class-name" {...props} />
+      <Tag className="some-class-name" {...props}>
+        some text
+      </Tag>
     );
   });
 

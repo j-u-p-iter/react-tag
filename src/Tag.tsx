@@ -6,6 +6,7 @@ export interface IProps extends React.HTMLAttributes<HTMLElement> {
   className: string;
   isClearable?: boolean;
   onClick?: (event: Event) => void;
+  children: React.ReactNode;
 }
 
 export interface IDefaultProps {
