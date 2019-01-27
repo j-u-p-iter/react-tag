@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag renders correctly by default 1`] = `
+<span
+  class="some-class-name"
+>
+  <span />
+</span>
+`;
+
+exports[`Tag renders correctly with all props 1`] = `
+<span
+  class="some-class-name"
+>
+  <span />
+  <i
+    data-testid="icon"
+  >
+    x
+  </i>
+</span>
+`;
